@@ -1,5 +1,11 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
+
+import ModalCart from '../modal/ModalCart';
 function Navbar() {
+	const [show, setShow] = useState(false);
+	const handleShow = () => setShow(true);
+	const handleClose = () => setShow(false);
+
 	return (
 		<Fragment>
 			<div className=" flex  fixed w-full top-0 bg-black  text-white     mx-auto justify-between px-10 border-solid border-b-orange-600 ">
@@ -14,9 +20,13 @@ function Navbar() {
 						<a href="#">About</a>
 					</li>
 				</ul>
-				<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 my-2 rounded">
-					Cart
-				</button>
+				{setShow && (
+					<ModalCart
+						show={show}
+						handleShow={handleShow}
+						handleClose={handleClose}
+					/>
+				)}
 				<span className=" fixed top-1  right-3   px-2 bg-red-500 rounded-full ">
 					3
 				</span>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
 	return (
-		<footer className="bg-blue-500  flex justify-evenly">
+		<footer className="bg-blue-400  flex justify-evenly">
 			<div>
 				<h2 className="text-white font-extrabold text-2xl">
 					The Generics{' '}

@@ -1,7 +1,12 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import Navbar from './Navbar';
+import ModalCart from '../modal/ModalCart';
 
 const Header = () => {
+	// const [show, setShow] = useState(false);
+	// const handleShow = () => setShow(true);
+	// const handleClose = () => setShow(false);
+
 	return (
 		<Fragment>
 			<Navbar className="border-solid" />
@@ -11,6 +16,13 @@ const Header = () => {
 						The Generics
 					</h1>
 				</div>
+				{/* {setShow && (
+					<ModalCart
+						show={show}
+						handleShow={handleShow}
+						handleClose={handleClose}
+					/>
+				)} */}
 			</header>
 		</Fragment>
 	);
