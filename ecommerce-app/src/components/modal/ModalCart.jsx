@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
+import CartContext from '../store/CartContext';
 import Cart from '../Cart/Cart';
 
 export default function ModalCart(props) {
 	const [showModal, setShowModal] = useState(false);
+
+	const cartCtx = useContext(CartContext);
+
+	const numberOfCartItems = cartCtx.items.reduce((currNumber, item) => {
+		return currNumber + item.amount;
+	}, 0);
+	console.log(numberOfCartItems);
 	return (
 		<>
 			<button
@@ -11,6 +20,8 @@ export default function ModalCart(props) {
 				onClick={() => setShowModal(true)}>
 				Cart
 			</button>
+			<span>{numberOfCartItems}</span>
+			{console.log(typeof numberOfCartItems)};
 			{showModal ? (
 				<>
 					<div className="justify-center items-center flex  overflow-x-hidden overflow-y-clip fixed inset-0 z-50 outline-none focus:outline-black text-black">

@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ProductToCart from './ProductToCart';
+import CartContext from '../store/CartContext';
 
 function MusicItems(props) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const price = props.price.toFixed(2);
 
-	const amountHandler = (event) => {
-		setEnteredAmount(event.target.value);
+	const cartCtx = useContext(CartContext);
+	const addToCartHandler = (quantity) => {
+		cartCtx.addItem({
+			id: props.id,
+			title: props.title,
+			price: props.price,
+			amount: quantity,
+			image: props.image,
+		});
 	};
-	const submitHandler = (event) => {
-		event.preventDefault();
-		console.log(enteredAmount);
-		console.log(props.title);
-		console.log(price);
-	};
+
+	// const amountHandler = (event) => {
+	// 	setEnteredAmount(event.target.value);
+	// };
+	// const submitHandler = (event) => {
+	// 	event.preventDefault();
+	// 	console.log(enteredAmount);
+	// 	console.log(props.title);
+	// 	console.log(price);
+	// };
 
 	return (
 		<React.Fragment>
@@ -26,7 +39,7 @@ function MusicItems(props) {
 					/>
 					<h1>${price}</h1>
 
-					<form onSubmit={submitHandler}>
+					{/* <form onSubmit={submitHandler}>
 						<input
 							type="number"
 							onChange={amountHandler}
@@ -35,7 +48,14 @@ function MusicItems(props) {
 						<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 my-2 rounded">
 							Add to cart
 						</button>
-					</form>
+					</form> */}
+				</div>
+
+				<div>
+					<ProductToCart
+						id={props.id}
+						onAddToCart={addToCartHandler}
+					/>
 				</div>
 			</section>
 		</React.Fragment>

@@ -27,9 +27,7 @@ function Navbar() {
 						handleClose={handleClose}
 					/>
 				)}
-				<span className=" fixed top-1  right-3   px-2 bg-red-500 rounded-full ">
-					3
-				</span>
+				{/* <span className=" fixed top-1  right-3   px-2 bg-red-500 rounded-full "></span> */}
 			</div>
 		</Fragment>
 	);

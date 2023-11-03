@@ -1,75 +1,72 @@
-import React, { Fragment } from 'react';
-import CartItems from './CartItems';
+import { Fragment, React, useContext } from 'react';
+import CartContext from '../store/CartContext';
 
-const cartElements = [
-	{
-		id: '0',
-		title: 'Colors',
+function Cart(props) {
+	const cartCtx = useContext(CartContext);
+	const totalAmount = +`${cartCtx.totalAmount.toFixed(2)}`;
+	console.log(totalAmount);
+	const cartItemAddHandler = (item) => {
+		cartCtx.addItem({ ...item, quantity: 1 });
+	};
 
-		price: 100,
+	const cartItemRemoveHandler = (id) => {
+		cartCtx.removeItem(id);
+	};
 
-		imageUrl:
-			'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+	const purchaseHandler = () => {
+		alert(`Congratulations You have bought the purchase  `);
+	};
 
-		quantity: 2,
-	},
-
-	{
-		id: '1',
-		title: 'Black and white Colors',
-
-		price: 50,
-
-		imageUrl:
-			'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-
-		quantity: 3,
-	},
-
-	{
-		id: '2',
-		title: 'Yellow and Black Colors',
-
-		price: 70,
-
-		imageUrl:
-			'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-
-		quantity: 1,
-	},
-];
-
-function Cart() {
 	return (
 		<Fragment>
-			<ul>
-				{cartElements.map((item) => {
-					console.log(`Title: ${item.title}, Price: ${item.price}`);
-					return (
-						<CartItems
-							key={item.id}
-							id={item.id}
-							title={item.title}
-							image={item.imageUrl}
-							price={item.price}
-							quantity={item.quantity}
-						/>
-					);
-				})}
-			</ul>
+			{cartCtx.items.map((item) => {
+				return (
+					<section>
+						<div
+							className="flex"
+							key={item.id}>
+							<u>ITEM</u>
+							<div className="column-3">
+								<img
+									src={item.image}
+									width="80px"
+									height="80px"
+									className="mb-2 mt-2"
+									alt={item.title}
+								/>
+								{item.title}
+							</div>
 
-			{/* <div>
-				<h3> Cart </h3>
-				<div>
-					<u>item</u>
+							<div className="column-3">
+								<p>Quantity : {item.amount}</p>
+							</div>
+							<br />
+							<div className="column-3">
+								<u>Price</u>
+								<p> ${item.price}</p>
+							</div>
+						</div>
+					</section>
+				);
+			})}
+
+			<div className=" justify-content-start">
+				<div className=" ">
+					<span className="total">
+						<b>Total:</b>
+					</span>
+					<span>${totalAmount}</span>
 				</div>
-				<div>
-					<u>Price</u>
+			</div>
+			<div className=" justify-content-center">
+				<div className=" me-5">
+					<button
+						className="bg-blue-500"
+						onClick={purchaseHandler}>
+						PURCHASE
+					</button>
 				</div>
-				<div>
-					<u>Quantity</u>
-				</div>
-			</div> */}
+			</div>
 		</Fragment>
 	);
 }

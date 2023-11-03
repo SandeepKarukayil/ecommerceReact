@@ -1,11 +1,19 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useContext } from 'react';
 import Navbar from './Navbar';
-import ModalCart from '../modal/ModalCart';
+import CartContext from '../store/CartContext';
 
-const Header = () => {
+// import ModalCart from '../modal/ModalCart';
+
+const Header = (props) => {
 	// const [show, setShow] = useState(false);
 	// const handleShow = () => setShow(true);
 	// const handleClose = () => setShow(false);
+
+	// const cartCtx = useContext(CartContext);
+
+	// const numberOfCartItems = cartCtx.items.reduce((currNumber, item) => {
+	// 	return currNumber + item.quantity;
+	// }, 0);
 
 	return (
 		<Fragment>
