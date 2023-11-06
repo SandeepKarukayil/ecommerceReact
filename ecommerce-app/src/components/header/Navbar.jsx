@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import ModalCart from '../modal/ModalCart';
 function Navbar() {
@@ -11,13 +12,26 @@ function Navbar() {
 			<div className=" flex  fixed w-full top-0 bg-black  text-white     mx-auto justify-between px-10 border-solid border-b-orange-600 ">
 				<ul className="flex   sticky  top-0 z-50 py-1 justify-evenly gap-14 mx-auto ">
 					<li>
-						<a href="#">Home</a>
+						<NavLink
+							to="/"
+							exact
+							activeClassName="active">
+							Home
+						</NavLink>
 					</li>
 					<li>
-						<a href="#">Store</a>
+						<NavLink
+							to="/store"
+							activeClassName="active">
+							Store
+						</NavLink>
 					</li>
 					<li>
-						<a href="#">About</a>
+						<NavLink
+							to="/about"
+							activeClassName="active">
+							About
+						</NavLink>
 					</li>
 				</ul>
 				{setShow && (
