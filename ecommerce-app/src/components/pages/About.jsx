@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../header/Header';
+import Header2 from '../UI/header2';
 import Footer from '../footer/Footer';
 
 function About() {
 	return (
 		<React.Fragment>
-			<Header />
+			<Header2 />
 			<h2 className="font-MetalMania text-center p-2 text-3xl m-0 top-0">
 				About
 			</h2>

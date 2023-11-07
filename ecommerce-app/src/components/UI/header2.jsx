@@ -1,10 +1,11 @@
 import { Fragment, useState, useContext } from 'react';
-import Navbar from './Navbar';
+
 import CartContext from '../store/CartContext';
+import Navbar2 from './Navbar2';
 
 // import ModalCart from '../modal/ModalCart';
 
-const Header = (props) => {
+const Header2 = (props) => {
 	// const [show, setShow] = useState(false);
 	// const handleShow = () => setShow(true);
 	// const handleClose = () => setShow(false);
@@ -17,7 +18,7 @@ const Header = (props) => {
 
 	return (
 		<Fragment>
-			<Navbar
+			<Navbar2
 				className="border-solid"
 				showCartButton={true}
 			/>
@@ -39,4 +40,4 @@ const Header = (props) => {
 	);
 };
 
-export default Header;
+export default Header2;

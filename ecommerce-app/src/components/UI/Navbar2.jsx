@@ -1,8 +1,7 @@
-import { Fragment, useState } from 'react';
+import { useState, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import ModalCart from '../modal/ModalCart';
-function Navbar() {
+import React from 'react';
+function Navbar2() {
 	const [show, setShow] = useState(false);
 	const handleShow = () => setShow(true);
 	const handleClose = () => setShow(false);
@@ -34,17 +33,16 @@ function Navbar() {
 						</NavLink>
 					</li>
 				</ul>
-				{setShow && (
+				{/* {setShow && (
 					<ModalCart
 						show={show}
 						handleShow={handleShow}
 						handleClose={handleClose}
 					/>
-				)}
+				)} */}
 				{/* <span className=" fixed top-1  right-3   px-2 bg-red-500 rounded-full "></span> */}
 			</div>
 		</Fragment>
 	);
 }
-
-export default Navbar;
+export default Navbar2;

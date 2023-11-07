@@ -4,6 +4,7 @@ import Footer from './components/footer/Footer';
 import CartProvider from './components/store/cartProvider';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import About from './components/pages/About';
+import Home from './components/pages/Home';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -15,7 +16,18 @@ const router = createBrowserRouter([
 			</CartProvider>
 		),
 	},
+	{
+		path: '/store',
+		element: (
+			<CartProvider>
+				<Header />
+				<Music />
+				<Footer />
+			</CartProvider>
+		),
+	},
 	{ path: '/about', element: <About className=" overflow-hidden" /> },
+	{ path: '/home', element: <Home className=" overflow-hidden" /> },
 ]);
 
 function App() {
