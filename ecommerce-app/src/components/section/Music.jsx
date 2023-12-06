@@ -1,5 +1,7 @@
 import React from 'react';
 import MusicItems from './MusicItems';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 const productsArr = [
 	{
@@ -32,9 +34,10 @@ const productsArr = [
 	},
 ];
 
-function music() {
+function Music() {
 	return (
 		<React.Fragment>
+			<Header />
 			<h3 className="text-center my-2 body-font font-MetalMania text-4xl">
 				Colors
 			</h3>
@@ -57,8 +60,9 @@ function music() {
 					See the Cart
 				</button>
 			</div>
+			<Footer />
 		</React.Fragment>
 	);
 }
 
-export default music;
+export default Music;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header2 from '../UI/header2';
+
 import Footer from '../footer/Footer';
 
 function About() {
