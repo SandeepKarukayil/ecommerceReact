@@ -1,37 +1,52 @@
-import Header from './components/header/Header';
-import Music from './components/section/Music';
-import Footer from './components/footer/Footer';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	BrowserRouter,
+	Routes,
+} from 'react-router-dom';
+
+import Home from './components/pages/Home.jsx';
+import About from './components/pages/About.jsx';
+import Contact from './components/pages/Contact.jsx';
+import Music from './components/section/Music.jsx';
 import CartProvider from './components/store/cartProvider';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import About from './components/pages/About';
-import Home from './components/pages/Home';
-// const router = createBrowserRouter([
-// 	{
-// 		path: '/',
-// 		element: (
-// 			<CartProvider>
-// 				<Header />
-// 				<Music />
-// 				<Footer />
-// 			</CartProvider>
-// 		),
-// 	},
-// 	{
-// 		path: '/store',
-// 		element: (
-// 			<CartProvider>
-// 				<Header />
-// 				<Music />
-// 				<Footer />
-// 			</CartProvider>
-// 		),
-// 	},
-// 	{ path: '/about', element: <About className=" overflow-hidden" /> },
-// 	{ path: '/home', element: <Home className=" overflow-hidden" /> },
-// ]);
+import ProductDisplay from './components/pages/ProductsDisplay.jsx';
+import StorePage from './components/pages/StorePage.jsx';
 
 function App() {
-	return <></>;
+	return (
+		<BrowserRouter>
+			<CartProvider>
+				<Routes>
+					<Route
+						path="/"
+						element={<Home />}
+					/>
+					<Route
+						path="/home"
+						element={<Home />}
+					/>
+					<Route
+						path="/about"
+						element={<About />}
+					/>
+					<Route
+						path="/store/:id"
+						element={<ProductDisplay />}
+					/>
+					<Route
+						path="/store"
+						element={<StorePage />}
+					/>
+					<Route
+						path="/contact"
+						element={<Contact />}
+					/>
+				</Routes>
+			</CartProvider>
+		</BrowserRouter>
+	);
 }
-
 export default App;

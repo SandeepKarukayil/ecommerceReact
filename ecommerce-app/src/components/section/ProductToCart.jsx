@@ -14,8 +14,8 @@ function ProductToCart(props) {
 		const enteredAmountNumber = +enteredAmount;
 		props.onAddToCart(enteredAmountNumber);
 		console.log(enteredAmountNumber);
+		// console.log(props.onAddToCart(enteredAmountNumber));
 	};
-
 	return (
 		<div>
 			<form onSubmit={submitHandler}>

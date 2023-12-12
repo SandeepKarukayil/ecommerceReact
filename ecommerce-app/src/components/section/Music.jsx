@@ -2,7 +2,8 @@ import React from 'react';
 import MusicItems from './MusicItems';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const productsArr = [
 	{
 		id: 'p1',
@@ -35,34 +36,57 @@ const productsArr = [
 ];
 
 function Music() {
-	return (
-		<React.Fragment>
-			<Header />
-			<h3 className="text-center my-2 body-font font-MetalMania text-4xl">
-				Colors
-			</h3>
+	const productList = productsArr.map((item, index) => (
+		<Link
+			key={index}
+			to={`/store/${item.id}`}>
+			<MusicItems
+				key={index}
+				id={item.id}
+				title={item.title}
+				image={item.imageUrl}
+				price={item.price}
+			/>
+		</Link>
+	));
 
-			<div className="flex flex-wrap justify-center ">
-				{productsArr.map((item) => {
-					return (
-						<MusicItems
-							key={item.id}
-							id={item.id}
-							title={item.title}
-							image={item.imageUrl}
-							price={item.price}
-						/>
-					);
-				})}
+	return (
+		<>
+			<h2 className="text-center my-4">Music</h2>
+			<div className="container my-4">
+				<div className="row justify-content-center align-items-center">
+					{productList}
+				</div>
 			</div>
-			<div>
-				<button className="bg-gray-400 text-blue-900 rounded-xl px-4 relative bottom-5 left-96">
-					See the Cart
-				</button>
-			</div>
-			<Footer />
-		</React.Fragment>
+		</>
 	);
+	// return (
+	// 	<React.Fragment>
+	// 		<Header />
+	// 		<h3 className="text-center my-2 body-font font-MetalMania text-4xl">
+	// 			Colors
+	// 		</h3>
+	// 		<div className="flex flex-wrap justify-center ">
+	// 			{productsArr.map((item) => {
+	// 				return (
+	// 					<MusicItems
+	// 						key={item.id}
+	// 						id={item.id}
+	// 						title={item.title}
+	// 						image={item.imageUrl}
+	// 						price={item.price}
+	// 					/>
+	// 				);
+	// 			})}
+	// 		</div>
+	// 		<div>
+	// 			<button className="bg-gray-400 text-blue-900 rounded-xl px-4 relative bottom-5 left-96">
+	// 				See the Cart
+	// 			</button>
+	// 		</div>
+	// 		<Footer />
+	// 	</React.Fragment>
+	// );
 }
 
 export default Music;

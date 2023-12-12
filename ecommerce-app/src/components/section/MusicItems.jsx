@@ -15,6 +15,8 @@ function MusicItems(props) {
 			amount: quantity,
 			image: props.image,
 		});
+
+		console.log(cartCtx.addItem);
 	};
 
 	// const amountHandler = (event) => {
@@ -39,16 +41,18 @@ function MusicItems(props) {
 					/>
 					<h1>${price}</h1>
 
-					{/* <form onSubmit={submitHandler}>
-						<input
-							type="number"
-							onChange={amountHandler}
-						/>
+					{/* {
+						<form onSubmit={submitHandler}>
+							<input
+								type="number"
+								onChange={amountHandler}
+							/>
 
-						<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 my-2 rounded">
-							Add to cart
-						</button>
-					</form> */}
+							<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 my-2 rounded">
+								Add to cart
+							</button>
+						</form>
+					} */}
 				</div>
 
 				<div>
